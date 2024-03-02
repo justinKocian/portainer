@@ -3,7 +3,7 @@ version: '3'
 services:
   portainer:
     image: portainer/portainer-ce:latest
-    container_name: portainer
+    container_name: portainer${HOSTNAME}
     ports:
       - "9000:9000"
     volumes:
