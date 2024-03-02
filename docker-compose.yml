@@ -1,17 +1,11 @@
 version: '3'
 
-networks:
-  graynet:
-    driver: bridge
-
 services:
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
     ports:
       - "9000:9000"
-    networks:
-      - graynet
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /data:/data
@@ -19,5 +13,5 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: "udp://172.40.0.207:12201"
+        gelf-address: "udp://192.168.1.101:12201"
         tag: "container_name={{.Name}}"
